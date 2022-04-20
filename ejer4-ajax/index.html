@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejer4 Ajax</title>
+	<script>
+		function cargarAjax(){
+		var obj_ajax = new XMLHttpRequest();
+		
+		obj_ajax.onreadystatechange=function()
+		{
+			if(obj_ajax.readyState==4 && obj_ajax.status==200){
+				var txt=this.responseText;
+				var lineas_personas = obj_ajax.responseText.split("\n");
+				var obj_div =document.getElementsByTagName('div')[0];
+				obj_div.innerHTML="";
+				for (i=0;i<lineas_personas.length;i++){
+					propiedades=lineas_personas[i].split(",");
+					var obj_p=document.createElement("p");
+					obj_p.innerHTML="Nombre: "+propiedades[0]+"Apellido 1: "+propiedades[1]+
+					"Apellido 2: "+propiedades[2];
+					obj_div.appendChild(obj_p);
+				}
+
+			}
+		}
+		obj_ajax.open("GET", "nombres.csv");
+	 	//readyState
+	 	obj_ajax.send();
+}
+	</script>
+</head>
+<body>
+	<input type="button" value="cargar" onclick="cargarAjax();">
+	<div>
+		
+	</div>
+</body>
+</html>

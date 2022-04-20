@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ajax segundo ejercicio</title>
+	<script>
+		function llamarAjax(){
+			var obj_ajax=new XMLHttpRequest();
+	 		obj_ajax.onreadystatechange=function()
+	 		{
+	 			console.log("El readyState vale: "+obj_ajax.readyState);
+	 			if (obj_ajax.readyState==4 &&  obj_ajax.status==200)
+	 			{
+	 				
+	 				var texto = obj_ajax.responseText.split(",");
+	 				for(i=0; i<texto.length;i++){
+	 					var obj_option=document.createElement('option');
+	 					obj_option.innerHTML=texto[i];
+	 					obj_option.value = texto[i];
+	 					document.getElementsByTagName('select')[0].appendChild(obj_option);
+	 				}
+	 			}
+	 	}
+	 	obj_ajax.open("GET", "nombres.txt");
+	 	//readyState
+	 	obj_ajax.send();
+	 	
+		}
+	</script>
+</head>
+<body onload="llamarAjax();">
+<div id="contenido">
+	<select>
+		
+	</select>
+</div>
+</body>
+</html>

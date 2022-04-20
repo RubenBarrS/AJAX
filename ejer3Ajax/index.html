@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>3 EJERCICIO</title>
+	<script>
+		function cargarImg()
+		{
+			var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange=function()
+			{
+				if (ajax.readyState==4 &&  ajax.status==200){
+					var imga = ajax.responseText.split(",");
+					var obj_select =document.createElement("select");
+					obj_select.onchange=cambiarImg;
+					for (i=0;i<imga.length;i++)
+					{
+						var obj_option =document.createElement('option');
+						obj_option.innerHTML="Imagen"+i;
+						obj_option.value=imga[i];
+						obj_select.appendChild(obj_option);
+					}
+					document.getElementsByTagName('body')[0].appendChild(obj_select);
+				}
+			}
+		ajax.open("GET", "texto.txt");
+	 	//readyState
+	 	ajax.send();
+		}
+		function cambiarImg()
+		{
+			var imagen= document.getElementById("Imagen");
+			if(imagen==null){
+				var obj_img=document.createElement("img");
+				obj_img.id="Imagen";
+				var ob_select = document.getElementsByTagName("select")[0].value;
+				obj_img.src=ob_select;
+				document.body.appendChild(obj_img);
+			}
+			else{
+				imagen.src= document.getElementsByTagName("select")[0].value;
+			}
+						
+
+			
+
+		}
+
+	</script>
+
+</head>
+<body onload="cargarImg();">
+
+</body>
+</html>
