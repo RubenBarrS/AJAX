@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<amigos>
+	<amigo>
+		<nombre>Pepe</nombre>
+		<tlf>659878745</tlf>
+	</amigo>
+	<amigo>
+		<nombre>Luis</nombre>
+		<tlf>634283434</tlf>
+	</amigo>
+	<amigo>
+		<nombre>Ruben</nombre>
+		<tlf>609248308</tlf>
+	</amigo>
+</amigos>

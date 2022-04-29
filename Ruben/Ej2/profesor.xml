@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profesores>
+	<profesor>
+		<nombre>Luis</nombre>
+		<asignatura>Lenguaje de Marcas</asignatura>
+		<asignatura>Servicios en Hez</asignatura>
+	</profesor>
+	<profesor>
+		<nombre>Juan</nombre>
+		<asignatura>Matemáticas</asignatura>
+		<asignatura>Física</asignatura>
+	</profesor>
+</profesores>
